@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image to Video</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+    }
+
+    #videoPlayer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .top-links a {
+      color: #1da1f2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .coming-text {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 2;
+      position: relative;
+      color: white;
+    }
+
+    .image-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    #previewImage {
+      max-width: 80vw;
+      max-height: 80vh;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      z-index: 2;
+    }
+
+    .youtube-link {
+      margin-top: 1rem;
+      font-size: 1rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .youtube-link a {
+      color: white;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <video id="videoPlayer" autoplay playsinline>
+    <source src="vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="top-links">
+    <a href="https://x.com" target="_blank">X</a>
+    <a href="https://pump.fun" target="_blank">Pump.fun</a>
+  </div>
+  <div class="coming-text">ca: coming, centralised</div>
+
+  <div class="image-container">
+    <img id="previewImage" src="pic.png" alt="Preview" />
+    <div class="youtube-link" id="youtubeLink">
+      <a href="https://youtu.be/jlFs8MnwrP8" target="_blank">YouTube</a>
+    </div>
+  </div>
+
+  <script>
+    const previewImage = document.getElementById('previewImage');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const youtubeLink = document.getElementById('youtubeLink');
+
+    previewImage.addEventListener('click', () => {
+      previewImage.style.display = 'none';
+      youtubeLink.style.display = 'none';
+      videoPlayer.style.display = 'block';
+      videoPlayer.play();
+    });
+  </script>
+</body>
+</html>
